@@ -1,36 +1,128 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ProjectFlow Pro
 
-## Getting Started
+AI-powered workflow tool for freelance engineers.
 
-First, run the development server:
+受託開発時の「ヒアリング → 要件定義 → MVP設計 → 見積 → 請求」までを、一つの画面で整理・管理できるAI支援ツールです。
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Claude Code を活用した実務フローを意識して開発しています。
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Demo
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+https://projectflow-pro-claude-code.vercel.app/
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## Features
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### ヒアリング整理
+- クライアント情報・依頼概要・予算・納期を整理
+- AIによるヒアリング質問生成
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 要件定義
+- 「やること / やらないこと / Phase2」を整理
+- 実装スコープを明確化
 
-## Deploy on Vercel
+### 提案書メモ
+- 課題
+- 解決策
+- 技術構成
+- スケジュール
+- 費用感
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+をまとめて管理
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### MVP設計
+- 機能を MVP / v1.0 / v2.0 に分類
+- Claude Code 用の実装指示を自動生成
+
+### 見積書作成
+- AIによる見積項目生成
+- 価格モード切り替え
+  - 駆け出し
+  - 標準
+  - 強気
+- 消費税対応
+- PDF出力
+
+### 請求書作成
+- 見積内容を請求書へ反映
+- PDF出力
+- 振込先情報の表示
+
+### その他
+- WBS管理
+- 進捗管理
+- 納品チェック
+- 振り返り
+- メールテンプレート
+
+---
+
+## Tech Stack
+
+- Next.js
+- TypeScript
+- Tailwind CSS
+- Claude API
+- Vercel
+
+---
+
+## How to Use
+
+### 1. クライアントブリーフを入力
+案件名、クライアント名、依頼内容、予算、納期を入力します。
+
+### 2. ヒアリング質問を作成
+AI生成ボタンを使うと、Why / Who / What / How に分けた質問案を作成できます。
+
+### 3. 要件整理
+ヒアリング回答をもとに、
+「やること」「やらないこと」「Phase 2」を整理します。
+
+### 4. 提案書メモを作成
+課題、解決策、技術構成、スケジュール、費用感をまとめます。
+
+### 5. MVP設計
+機能を MVP / v1.0 / v2.0 に分類し、Claude Codeへ貼り付ける実装指示を作成します。
+
+### 6. 見積書を作成
+AIで見積項目のたたき台を生成し、金額を調整できます。
+作成した見積書はPDF出力できます。
+
+### 7. 請求書を作成
+見積書の内容を読み込み、請求書を作成できます。
+請求書もPDF出力できます。
+
+### 8. 進捗・納品・振り返り
+WBS、実装進捗、納品チェックリスト、振り返りを記録できます。
+
+---
+
+## Future Improvements
+
+- 複数案件管理
+- Firebase / Supabase 保存
+- ログイン機能
+- PDFデザイン強化
+- チーム共有
+- AI提案精度向上
+
+---
+
+## Purpose
+
+受託開発を進める中で、
+
+- ヒアリング内容が散らばる
+- 要件整理が曖昧になる
+- 見積作成に悩む
+- Claude Code への指示が毎回ブレる
+
+という課題を感じ、
+実際の受託フローを整理するために開発しました。
+
+AIを単なる文章生成ではなく、
+「案件進行を支援するツール」として活用することを目的としています。
