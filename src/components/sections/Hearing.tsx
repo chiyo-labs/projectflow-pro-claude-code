@@ -20,7 +20,7 @@ function generateId() {
 }
 
 interface RequirementsPreviewProps {
-  result: Pick<Requirements, 'inScope' | 'outOfScope' | 'phase2'>;
+  result: Pick<Requirements, 'inScope' | 'outOfScope' | 'phase2' | 'notes'>;
 }
 
 function RequirementsPreview({ result }: RequirementsPreviewProps) {
@@ -53,14 +53,14 @@ interface HearingProps {
   data: HearingItem[];
   onChange: (v: HearingItem[]) => void;
   briefData?: Pick<ClientBrief, 'projectName' | 'requestSummary'>;
-  onAiGenerateRequirements?: (req: Pick<Requirements, 'inScope' | 'outOfScope' | 'phase2'>) => void;
+  onAiGenerateRequirements?: (req: Pick<Requirements, 'inScope' | 'outOfScope' | 'phase2' | 'notes'>) => void;
 }
 
 export function Hearing({ data, onChange, briefData, onAiGenerateRequirements }: HearingProps) {
   const [modalOpen, setModalOpen] = useState(false);
   const { generate, isLoading, error, result, reset } = useAiGenerate<
     { hearing: HearingItem[]; brief: typeof briefData },
-    Pick<Requirements, 'inScope' | 'outOfScope' | 'phase2'>
+    Pick<Requirements, 'inScope' | 'outOfScope' | 'phase2' | 'notes'>
   >('/api/ai/generate-requirements');
 
   const addItem = (category: HearingItem['category']) => {
