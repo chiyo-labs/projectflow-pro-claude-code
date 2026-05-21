@@ -54,10 +54,10 @@ function TextInput({
 }
 
 const CATEGORY_LABELS = {
-  why: { label: 'Why', description: 'なぜ作るのか？', bg: 'bg-purple-50', border: 'border-purple-200', text: 'text-purple-700' },
-  who: { label: 'Who', description: '誰のためか？', bg: 'bg-blue-50', border: 'border-blue-200', text: 'text-blue-700' },
-  what: { label: 'What', description: '何を実現するか？', bg: 'bg-green-50', border: 'border-green-200', text: 'text-green-700' },
-  how: { label: 'How', description: 'どのように実現するか？', bg: 'bg-amber-50', border: 'border-amber-200', text: 'text-amber-700' },
+  why: { label: 'Why', description: 'ビジネス目標を引き出す', bg: 'bg-purple-50', border: 'border-purple-200', text: 'text-purple-700' },
+  who: { label: 'Who', description: 'ユーザー像を引き出す', bg: 'bg-blue-50', border: 'border-blue-200', text: 'text-blue-700' },
+  what: { label: 'What', description: '機能スコープを引き出す', bg: 'bg-green-50', border: 'border-green-200', text: 'text-green-700' },
+  how: { label: 'How', description: '制約条件を引き出す', bg: 'bg-amber-50', border: 'border-amber-200', text: 'text-amber-700' },
 } as const;
 
 interface HearingPreviewProps {

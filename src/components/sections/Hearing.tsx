@@ -9,10 +9,10 @@ import { useAiGenerate } from '@/hooks/useAiGenerate';
 import type { HearingItem, ClientBrief, Requirements } from '@/types/project';
 
 const CATEGORY_CONFIG = {
-  why: { label: 'Why', description: 'なぜ作るのか？', color: 'bg-purple-50 border-purple-200' },
-  who: { label: 'Who', description: '誰のためか？', color: 'bg-blue-50 border-blue-200' },
-  what: { label: 'What', description: '何を実現するか？', color: 'bg-green-50 border-green-200' },
-  how: { label: 'How', description: 'どのように実現するか？', color: 'bg-amber-50 border-amber-200' },
+  why: { label: 'Why', description: 'ビジネス目標を引き出す', color: 'bg-purple-50 border-purple-200' },
+  who: { label: 'Who', description: 'ユーザー像を引き出す', color: 'bg-blue-50 border-blue-200' },
+  what: { label: 'What', description: '機能スコープを引き出す', color: 'bg-green-50 border-green-200' },
+  how: { label: 'How', description: '制約条件を引き出す', color: 'bg-amber-50 border-amber-200' },
 } as const;
 
 function generateId() {
