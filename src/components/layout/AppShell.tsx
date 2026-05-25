@@ -17,8 +17,10 @@ import { MvpDesign } from '@/components/sections/MvpDesign';
 import { QuoteSection } from '@/components/sections/Quote';
 import { InvoiceSection } from '@/components/sections/Invoice';
 import { Settings } from '@/components/sections/Settings';
+import { OpsCheck } from '@/components/sections/OpsCheck';
 import { useAppSettings } from '@/hooks/useAppSettings';
 import type { SectionId } from '@/types/project';
+import { getDefaultProject } from '@/lib/storage';
 
 function LoadingSkeleton() {
   return (
@@ -54,6 +56,7 @@ export function AppShell() {
     updateMvp,
     updateQuote,
     updateInvoice,
+    updateOpsCheck,
   } = useProjectData();
 
   const renderSection = () => {
@@ -102,6 +105,13 @@ export function AppShell() {
         return <Wbs data={data.wbs} onChange={updateWbs} />;
       case 'progress':
         return <Progress data={data.progress} onChange={updateProgress} />;
+      case 'ops-check':
+        return (
+          <OpsCheck
+            data={data.opsCheck ?? getDefaultProject().opsCheck!}
+            onChange={updateOpsCheck}
+          />
+        );
       case 'delivery':
         return <DeliveryCheck data={data.delivery} onChange={updateDelivery} />;
       case 'retrospective':

@@ -1,4 +1,4 @@
-import type { ProjectData, DeliveryItem, HearingItem, AppSettings } from '@/types/project';
+import type { ProjectData, DeliveryItem, HearingItem, AppSettings, OpsCheckItem } from '@/types/project';
 
 const STORAGE_KEY = 'projectflow_pro_v1';
 export const APP_SETTINGS_KEY = 'projectflow_settings_v1';
@@ -20,6 +20,46 @@ const DEFAULT_DELIVERY_ITEMS: DeliveryItem[] = [
   { id: 'd4', label: 'デプロイ完了', checked: false },
   { id: 'd5', label: 'クライアントへの納品連絡', checked: false },
   { id: 'd6', label: '請求書の送付', checked: false },
+];
+
+function opsItem(id: string, label: string): OpsCheckItem {
+  return { id, label, checked: false, note: '' };
+}
+
+const DEFAULT_OPS_ACCOUNT_PERMISSIONS: OpsCheckItem[] = [
+  opsItem('op_acc1', 'Vercel へのメンバー招待を受けた'),
+  opsItem('op_acc2', 'Supabase プロジェクトへのアクセス権限を確認した'),
+  opsItem('op_acc3', 'LINE Developers チャンネルの編集権限を確認した'),
+  opsItem('op_acc4', 'GitHub リポジトリへのコラボレーター招待を受けた'),
+];
+
+const DEFAULT_OPS_WORK_CONSENT: OpsCheckItem[] = [
+  opsItem('op_wc1', '作業内容・範囲について書面で合意した'),
+  opsItem('op_wc2', '追加費用が発生する条件をクライアントに説明した'),
+  opsItem('op_wc3', '本番環境へ影響が出る可能性について説明した'),
+  opsItem('op_wc4', 'データの取り扱い・プライバシーポリシーを確認した'),
+];
+
+const DEFAULT_OPS_ENV_VARS: OpsCheckItem[] = [
+  opsItem('op_ev1', '.env ファイルを Git 管理から除外していることを確認した'),
+  opsItem('op_ev2', '本番用と開発用の API キーを分けていることを確認した'),
+  opsItem('op_ev3', '環境変数の一覧をクライアントと共有した'),
+  opsItem('op_ev4', 'API キーの管理責任者（誰が保持するか）を明確にした'),
+];
+
+const DEFAULT_OPS_ADMIN_HANDOVER: OpsCheckItem[] = [
+  opsItem('op_ah1', '本番環境の管理者アカウントをクライアントに引き渡した'),
+  opsItem('op_ah2', 'クライアントが自分でログインできることを確認した'),
+  opsItem('op_ah3', 'Vercel / Supabase 等の請求情報をクライアント名義に変更した'),
+  opsItem('op_ah4', '緊急時の連絡先・対応手順を伝えた'),
+];
+
+const DEFAULT_OPS_CLIENT_HANDOVER: OpsCheckItem[] = [
+  opsItem('op_ch1', 'システム概要説明書を渡した'),
+  opsItem('op_ch2', '管理画面・ダッシュボードの操作方法を説明した'),
+  opsItem('op_ch3', 'API キー・パスワードの管理方法を説明した'),
+  opsItem('op_ch4', '今後の費用（ホスティング・API コストなど）を説明した'),
+  opsItem('op_ch5', '不明点の問い合わせ先を伝えた'),
 ];
 
 const DEFAULT_HEARING_ITEMS: HearingItem[] = [
@@ -65,6 +105,14 @@ export function getDefaultProject(): ProjectData {
       improvements: '',
     },
     mvp: [],
+    opsCheck: {
+      accountPermissions: DEFAULT_OPS_ACCOUNT_PERMISSIONS,
+      workConsent: DEFAULT_OPS_WORK_CONSENT,
+      envVars: DEFAULT_OPS_ENV_VARS,
+      adminHandover: DEFAULT_OPS_ADMIN_HANDOVER,
+      maintenanceScope: '',
+      clientHandover: DEFAULT_OPS_CLIENT_HANDOVER,
+    },
     quote: {
       items: [],
       settings: { taxRate: 10, notes: '' },

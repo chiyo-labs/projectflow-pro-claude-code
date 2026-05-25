@@ -95,6 +95,22 @@ export interface Invoice {
   settings: QuoteSettings;
 }
 
+export interface OpsCheckItem {
+  id: string;
+  label: string;
+  checked: boolean;
+  note: string;
+}
+
+export interface OpsCheck {
+  accountPermissions: OpsCheckItem[];
+  workConsent: OpsCheckItem[];
+  envVars: OpsCheckItem[];
+  adminHandover: OpsCheckItem[];
+  maintenanceScope: string;
+  clientHandover: OpsCheckItem[];
+}
+
 export interface ProjectData {
   _version: '1';
   brief: ClientBrief;
@@ -108,6 +124,7 @@ export interface ProjectData {
   mvp?: MvpFeature[];
   quote?: Quote;
   invoice?: Invoice;
+  opsCheck?: OpsCheck;
 }
 
 export interface AppSettings {
@@ -125,6 +142,7 @@ export type SectionId =
   | 'proposal'
   | 'wbs'
   | 'progress'
+  | 'ops-check'
   | 'delivery'
   | 'retrospective'
   | 'email'

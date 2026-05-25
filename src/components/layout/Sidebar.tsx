@@ -39,6 +39,10 @@ const NAV_GROUPS: NavGroup[] = [
     ],
   },
   {
+    label: '運用・引き継ぎ',
+    items: [{ id: 'ops-check', label: '運用チェック' }],
+  },
+  {
     label: '納品',
     items: [
       { id: 'delivery', label: '納品チェック' },

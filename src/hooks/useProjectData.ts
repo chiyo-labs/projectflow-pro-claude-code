@@ -16,6 +16,7 @@ import type {
   MvpFeature,
   Quote,
   Invoice,
+  OpsCheck,
 } from '@/types/project';
 
 export function useProjectData() {
@@ -83,6 +84,12 @@ export function useProjectData() {
     [setData],
   );
 
+  const updateOpsCheck = useCallback(
+    (v: Partial<OpsCheck>) =>
+      setData(p => ({ ...p, opsCheck: { ...p.opsCheck!, ...v } })),
+    [setData],
+  );
+
   return {
     data,
     isHydrated,
@@ -97,5 +104,6 @@ export function useProjectData() {
     updateMvp,
     updateQuote,
     updateInvoice,
+    updateOpsCheck,
   };
 }

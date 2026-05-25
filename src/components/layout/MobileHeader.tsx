@@ -9,6 +9,7 @@ const SECTION_LABELS: Record<SectionId, string> = {
   proposal: '提案書',
   wbs: 'WBS',
   progress: '実装進捗',
+  'ops-check': '運用チェック',
   delivery: '納品チェック',
   retrospective: '振り返り',
   email: 'メールテンプレ',
